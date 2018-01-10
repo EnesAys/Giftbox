@@ -1,0 +1,41 @@
+﻿@model GiftBox.DAL.Sekil
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Şekil Sil</h2>
+
+<h3>Silmek İstediğinize Emin misiniz?</h3>
+<div>
+    <h4>Sekil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimPath)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Şekiller", "Index")
+        </div>
+    }
+</div>

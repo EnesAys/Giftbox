@@ -1,0 +1,89 @@
+﻿@model GiftBox.DAL.Siparis
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sipariş Sil</h2>
+
+<h3>Siparişi Silmek İstediğinize Emin misiniz?</h3>
+<div>
+    <h4>Siparis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cicek.Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cicek.Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cikolata.Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cikolata.Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kutu.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kutu.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Metin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimTarih)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Siparişler", "Index")
+        </div>
+    }
+</div>

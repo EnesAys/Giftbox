@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GiftBox.DAL.Siparis >
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cicek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cikolata)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kutu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeslimTarih)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cicek.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cikolata.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kutu.Sekil.Tur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeslimTarih)
+            </td>
+            <td>
+           
+                @Html.ActionLink("Detay", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,200 @@
+﻿@model GiftBox.UI.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+@Html.AntiForgeryToken()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | GiftShop</title>
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Content/css/price-range.css" rel="stylesheet">
+    <link href="/Content/css/animate.css" rel="stylesheet">
+    <link href="/Content/css/main.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="/Content/js/html5shiv.js"></script>
+    <script src="/Content/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/Content/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/Content/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+    <style>
+        #size {
+            height: 350px;
+            width: 450px;
+        }
+    </style>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#"><i class="fa fa-phone"></i> +90 555 555 55 55</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> info@info.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+
+                        <div class="btn-group pull-right">
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+
+
+
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
+                                <li><a href="~/Account/login"><i class="fa fa-lock"></i> Giriş</a></li>
+                                <li><a href="~/Account/Register"><i class="fa fa-arrow-circle-right"></i> Üye Ol</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="~/Account/Logout"><i class="fa fa-sign-out"></i> Çıkış Yap</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="/" class="active">Ana Sayfa</a></li>
+                                <li><a href="~/Home/Hakkimizda">Hakkımızda</a></li>
+                                <li class="dropdown">
+                                    <a href="~/Home/Cicek">Malzemeler<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="~/Home/Cicek">Çiçek</a></li>
+                                        <li><a href="~/Home/Cikolata">Çikolata</a></li>
+                                        <li><a href="~/Home/Kutu">Kutu</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/Home/Siparis">Kutu Hazırlama</a></li>
+                                <li><a href="~/Home/İletisim">İletişim</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-bottom-->
+    </header><!--/header-->
+
+    <section id="form">
+        <!--form-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div class="login-form">
+                        <!--login form-->
+
+                        @Html.ValidationSummary()
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.LabelFor(m => m.Username)
+                            @Html.TextBoxFor(m => m.Username)
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password)
+                            <span>
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                Beni Hatırla
+                            </span>
+                            <input type="submit" value="Giriş" class="btn btn-default">
+                        }
+                    </div><!--/login form-->
+                </div>
+
+
+            </div>
+        </div>
+
+    </section><!--/form-->
+
+
+    <footer id="footer">
+        <!--Footer-->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <p class="pull-left">Copyright © 2017 Giftbox.All rights reserved.</p>
+                    <p class="pull-right">Designed by <span><a target="_blank" href="~/Home/Hakkimizda"> Enes AYSAN, Bekir UZUN, Ömer KARAKOÇ</a></span></p>
+                </div>
+            </div>
+        </div>
+
+    </footer><!--/Footer-->
+
+    <script src="/Content/js/jquery.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.scrollUp.min.js"></script>
+    <script src="/Content/js/price-range.js"></script>
+    <script src="/Content/js/jquery.prettyPhoto.js"></script>
+    <script src="/Content/js/main.js"></script>
+</body>
+</html>
